@@ -41,30 +41,9 @@ const Calculator = () => {
         }  
     }
     const calculation = () => {
-        let input = value.toString()
-        let outputArr = []
-        let inputArr = [] 
-            while(input.length>0) {
-                let tempLength = parseFloat(input).toString().length 
-                outputArr.push(input.split("").splice(0,tempLength).join(""))
-                inputArr = input.split("").splice(tempLength,input.length-tempLength)
-                input = inputArr.join("")
-                if(input.length>0) {
-                    outputArr.push(input.split("").splice(0,1).join(""))
-                    inputArr = input.split("").splice(1,input.length-1)
-                    input = inputArr.join("")
-                }
-            }
-        let evalString = ""
-        if (outputArr.length<2) setValue(value)
-        else {
-            outputArr.map(entry => {
-                evalString+=entry
-            }) 
-            setValue(eval(evalString))
-        }   
+        setValue(eval(value.toString()))
     }
-      
+
     return (
         <div className="container">
         <input type="text" className="input" value={value}readOnly></input>
