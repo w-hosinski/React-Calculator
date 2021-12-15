@@ -3,11 +3,13 @@ import React, { useState } from 'react'
 const Calculator = () => {
     const [value, setValue] = useState(0)
     const [lastIsOperation, setlastIsOperation] = useState(false)
+
     const enterNumber = (num) => {
         if(value) setValue(`${value}${num}`)
         else setValue(num)
         setlastIsOperation(false)
     }
+
     const enterSign = (sign) => {
         if(sign!=="." || value.toString().split('.').length<2) {
             if(!lastIsOperation) {
@@ -16,6 +18,7 @@ const Calculator = () => {
             }    
         }  
     }
+
     const backspace = () => {
         if(value!==0) {
             let newStr = [...value]
@@ -24,10 +27,12 @@ const Calculator = () => {
             else setValue(result)
         }
     }
+
     const clear = () => {
         setValue(0)
         setlastIsOperation(false)
     }
+
     const plusMinus = () => {
         if(value!==0 && !lastIsOperation) {
             if(value.toString().indexOf("-")!==0) {
@@ -40,6 +45,7 @@ const Calculator = () => {
             }
         }  
     }
+    
     const calculation = () => {
         setValue(eval(value.toString()))
     }
@@ -69,4 +75,5 @@ const Calculator = () => {
         </div>
     )
 }
+
 export default Calculator
