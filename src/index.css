@@ -1,8 +1,10 @@
 body {
     overflow: hidden;
 }
+
 .container {
-    margin: 12% 35%;
+    margin:25vh auto 0;
+    width: 15%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
@@ -15,6 +17,7 @@ body {
 .input {
     grid-area: 1 / 1 / 1 / 5;
     font-size: 2.4em;
+    min-width: 25%;
     text-align: right;
     border: 2px solid gray;
 }
